@@ -71,40 +71,40 @@ class Chess:
 
         # Piece array
         self.pieces.append(piece.Rook(coords.A1, WHITE))
-        self.pieces.append(piece.Rook((7, 7), WHITE))
-        self.pieces.append(piece.Knight((1, 7), WHITE))
-        self.pieces.append(piece.Knight((6, 7), WHITE))
-        self.pieces.append(piece.Bishop((2, 7), WHITE))
-        self.pieces.append(piece.Bishop((5, 7), WHITE))
-        self.pieces.append(piece.Queen((3, 7), WHITE))
-        self.pieces.append(piece.King((4, 7), WHITE))
+        self.pieces.append(piece.Rook(coords.B1, WHITE))
+        self.pieces.append(piece.Knight(coords.C1, WHITE))
+        self.pieces.append(piece.Knight(coords.D1, WHITE))
+        self.pieces.append(piece.Bishop(coords.E1, WHITE))
+        self.pieces.append(piece.Bishop(coords.F1, WHITE))
+        self.pieces.append(piece.Queen(coords.G1, WHITE))
+        self.pieces.append(piece.King(coords.H1, WHITE))
         for location in coords.pawns_white():
             self.board.set_piece(location, WHITE_PAWN)
-            self.pieces.append(piece.Pawn((i, 6), WHITE))
+            self.pieces.append(piece.Pawn(location, WHITE))
 
         # Black pieces
         # Board
-        self.board.set_piece(0, 0, BLACK_ROOK)
-        self.board.set_piece(7, 0, BLACK_ROOK)
-        self.board.set_piece(1, 0, BLACK_KNIGHT)
-        self.board.set_piece(6, 0, BLACK_KNIGHT)
-        self.board.set_piece(2, 0, BLACK_BISHOP)
-        self.board.set_piece(5, 0, BLACK_BISHOP)
-        self.board.set_piece(3, 0, BLACK_QUEEN)
-        self.board.set_piece(4, 0, BLACK_KING)
+        self.board.set_piece(coords.A8, BLACK_ROOK)
+        self.board.set_piece(coords.H8, BLACK_ROOK)
+        self.board.set_piece(coords.B8, BLACK_KNIGHT)
+        self.board.set_piece(coords.G8, BLACK_KNIGHT)
+        self.board.set_piece(coords.C8, BLACK_BISHOP)
+        self.board.set_piece(coords.F8, BLACK_BISHOP)
+        self.board.set_piece(coords.D8, BLACK_QUEEN)
+        self.board.set_piece(coords.E8, BLACK_KING)
 
         # Piece array
-        self.pieces.append(piece.Rook((0, 0), BLACK))
-        self.pieces.append(piece.Rook((7, 0), BLACK))
-        self.pieces.append(piece.Knight((1, 0), BLACK))
-        self.pieces.append(piece.Knight((6, 0), BLACK))
-        self.pieces.append(piece.Bishop((2, 0), BLACK))
-        self.pieces.append(piece.Bishop((5, 0), BLACK))
-        self.pieces.append(piece.Queen((3, 0), BLACK))
-        self.pieces.append(piece.King((4, 0), BLACK))
-        for i in range(8):
-            self.board.set_piece(i, 1, BLACK_PAWN)
-            self.pieces.append(piece.Pawn((i, 1), BLACK))
+        self.pieces.append(piece.Rook(coords.A8, BLACK))
+        self.pieces.append(piece.Rook(coords.H8, BLACK))
+        self.pieces.append(piece.Knight(coords.B8, BLACK))
+        self.pieces.append(piece.Knight(coords.G8, BLACK))
+        self.pieces.append(piece.Bishop(coords.C8, BLACK))
+        self.pieces.append(piece.Bishop(coords.F8, BLACK))
+        self.pieces.append(piece.Queen(coords.D8, BLACK))
+        self.pieces.append(piece.King(coords.E8, BLACK))
+        for location in coords.pawns_black():
+            self.board.set_piece(location, BLACK_PAWN)
+            self.pieces.append(piece.Pawn(location, BLACK))
 
     def attacked_squares(self):
         for p in self.pieces:
