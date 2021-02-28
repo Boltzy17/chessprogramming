@@ -43,8 +43,14 @@ class Board:
     def __init__(self):
         self.board = np.ndarray((8, 8), dtype=np.uint16)
 
+    def is_black_piece(self, location: coords.Coords):
+        return self.board[location.x][location.y] & 4032
+
     def is_free(self, location: coords.Coords):
         return self.board[location.x][location.y] & 4095
+
+    def is_white_piece(self, location: coords.Coords):
+        return self.board[location.x][location.y] & 63
 
     def set_piece(self, location: coords.Coords, p: int):
         self.board[location.x][location.y] = p
