@@ -1,3 +1,6 @@
+LETTER_COORDS = {0: "a", 1: "b", 2: "c", 3: "d", 4: "e", 5: "f", 6: "g", 7: "h"}
+
+
 class Coords:
     def __init__(self, x, y):
         if 0 <= x <= 7:
@@ -8,6 +11,15 @@ class Coords:
             self.y = y
         else:
             raise CoordsOutOfBoundsException("y out of bounds")
+
+    def __str__(self):
+        return f"{LETTER_COORDS[self.x]}{8-self.y}"
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __hash__(self):
+        return hash((self.x, self.y))
 
 
 class CoordsOutOfBoundsException(Exception):
